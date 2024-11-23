@@ -30,30 +30,33 @@ git push --mirror azure
 
 ## For Developers
 
-7. Update Remote URLs in Local Clones (Because it contains both GitLab and Azure repo url)
-This command changes/updates the URL of an existing remote
+1. Clone the Azure project repository
 ```sh
-git remote set-url origin <azure-repo-url>
-```
-This command adds a new remote named azure with the URL specified 
-```sh
-git remote add azure <azure-repo-url>
+git clone <azure-repo-url>
 ```
 
-8. Check the remote URL
+2. Check the remote URL
 ```sh
 git remote -v
 ```
-
-9. Pull the latest code
+or you can add remote URL. This command adds a new remote with the URL specified 
 ```sh
-git pull origin <branch-name>
-```	
-Eg: git pull origin main
+git remote add origin <azure-repo-url>
+```
+or set the URL using
+```sh
+git remote set-url origin <azure-repo-url>
+```
 
-9. Now do changes to the code and push to Azure repos
+4. Now do changes to the code and push to Azure repos
 ```sh
 git add .
 git commit -m "Your commit message"
 git push origin <branch-name>
 ```
+
+5. Pull the latest code
+```sh
+git pull origin <branch-name>
+```	
+Eg: git pull origin main
