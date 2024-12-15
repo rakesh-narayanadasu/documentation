@@ -23,3 +23,19 @@ After this, verify that ```nvm``` and ```node``` are accessible from any user:
 ```sh
 node -v
 ```
+5. Edit ```.bashrc``` file
+```sh
+nano ~/.bashrc
+```
+```sh
+#python3.11
+alias python3='/usr/local/bin/python3.11'
+#alias node='/usr/local/nvm/versions/node/v18.20.5/bin/node'
+export NODE_HOME='/usr/local/nvm/versions/node/v18.20.5'
+export NPM_HOME='$NODE_HOME'
+export PATH="$NODE_HOME/bin:$PATH"
+```
+7. Refresh ```.bashrc```
+```sh
+source ~/.bashrc
+```
