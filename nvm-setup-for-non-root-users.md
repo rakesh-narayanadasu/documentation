@@ -1,4 +1,35 @@
-# Configuring nvm at ```/usr/local/nvm``` to access multiple users in Ubuntu
+
+## Create new user
+1. Create the dev User
+You can create the user dev by running the following command in the terminal:
+```sh
+sudo adduser dev
+```
+2. Ensure the User Does Not Have sudo Privileges
+By default, the user dev will not have sudo privileges unless you explicitly add them to the sudo or admin group. So you can ensure that the user is not in the sudo group by running the following:
+```sh
+sudo deluser dev sudo
+```
+3. Allow the dev User to Access Root-Level Packages
+Check permissions for directories like /usr, /lib, and /bin:
+```sh
+ls -ld /usr /lib /bin
+```
+The output should show that these directories have at least r-x (read and execute) permissions for others. If not, you can change the permissions:
+```sh
+sudo chmod o+rx /usr /lib /bin
+```
+4. Verifying Access
+To verify that the dev user has access to these packages and can use them, you can log in as the dev user:
+```sh
+su - dev
+```
+Try running a command that should be accessible system-wide, such as checking installed packages:
+```sh
+which python3
+```
+
+## Configuring nvm at ```/usr/local/nvm``` to access multiple users in Ubuntu
 Move ```nvm``` to ```/usr/local/nvm```
 If you prefer not to reinstall ```nvm``` from scratch, you can move the existing ```nvm``` installation from ```/home/rakesh/.nvm``` to ```/usr/local/nvm``` and update the necessary configuration files.
 1. Move ```nvm``` Directory to ```/usr/local/nvm```
