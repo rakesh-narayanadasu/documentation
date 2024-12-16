@@ -70,3 +70,17 @@ export PATH="$NODE_HOME/bin:$PATH"
 ```sh
 source ~/.bashrc
 ```
+
+## Configure docker to access multiple users in Ubuntu
+1. Create the docker group (if it doesn't already exist): In most systems, the docker group is created automatically during Docker installation. However, if it doesn't exist, you can create it manually:
+```sh
+sudo groupadd docker
+```
+2. Add the user (dev) to the docker group: Add the dev user to the docker group using the following command:
+```sh
+sudo usermod -aG docker dev # dev is non-root user
+```
+3. Log out and log back in: After adding the user to the Docker group, the user needs to log out and log back in for the group changes to take effect. Alternatively, you can run the following command to refresh the group membership without logging out:
+```sh
+newgrp docker
+```
